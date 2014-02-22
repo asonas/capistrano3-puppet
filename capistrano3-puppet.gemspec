@@ -1,4 +1,3 @@
-# coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'capistrano3/puppet/version'
@@ -8,9 +7,9 @@ Gem::Specification.new do |spec|
   spec.version       = Capistrano3::Puppet::VERSION
   spec.authors       = ["asonas"]
   spec.email         = ["hzw1258@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.description   = %q{puppet apply in capistrano tasks}
+  spec.summary       = %q{puppet apply in capistrano tasks}
+  spec.homepage      = "https://github.com/asonas/capistrano3-puppet"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
@@ -18,6 +17,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
+  spec.add_dependency 'capistrano', '>= 3.1.0'
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
 end
