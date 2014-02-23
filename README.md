@@ -18,7 +18,24 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+in Capfile:
+
+```
+require 'capistrano3/puppet'
+```
+
+in deploy.rb:
+
+```
+set :puppet_roles, :app
+set :puppet_modulepath, "roles:modules"
+```
+
+in config/deploy/*.rb
+
+```
+set :puppet_manifest_file, "manifests/amanusa.pp"
+```
 
 ## Contributing
 
