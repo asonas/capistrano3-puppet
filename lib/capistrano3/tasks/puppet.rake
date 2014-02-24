@@ -12,7 +12,7 @@ namespace :puppet do
     fetch(:puppet_role, :app)
   end
 
-  desc 'puppet apply'
+  desc 'Run puppet apply'
   task :apply do
     on roles(puppet_roles) do
       within release_path do
@@ -20,5 +20,11 @@ namespace :puppet do
       end
     end
   end
-
 end
+
+after "deploy:published", "puppet:apply"
+
+desc 'Run the provisioning processes by puppet'
+task :provision
+
+after :provision, :deploy
