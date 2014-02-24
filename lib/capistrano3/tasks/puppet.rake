@@ -16,7 +16,11 @@ namespace :puppet do
   task :apply do
     on roles(puppet_roles) do
       within release_path do
-        execute :puppet, :apply, "--modulepath=#{modulepath}", manifest_file
+        if fetch(:use_sudo, false)
+          execute :sudo, :puppet, :apply, "--modulepath=#{modulepath}", manifest_file
+        else
+          execute :puppet, :apply, "--modulepath=#{modulepath}", manifest_file
+        end
       end
     end
   end
