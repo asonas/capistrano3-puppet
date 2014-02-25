@@ -13,7 +13,7 @@ namespace :puppet do
   end
 
   def puppet_options
-    options = fetch(:puppet_role, nil)
+    options = fetch(:puppet_options, nil)
     unless options
       options = ["--modulepath=#{modulepath}"]
       options << "--noop" if ENV['NOOP']
