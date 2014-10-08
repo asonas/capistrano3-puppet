@@ -11,11 +11,15 @@ module CommandRunner
     @__env = {
       'PATH' => '/bin"/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin',
     }
-    unless `which boot2docker`.empty?
+    if have_boot2docker?
       docker_host = `echo tcp://$(boot2docker ip 2>/dev/null):2375`.chomp
       @__env['DOCKER_HOST'] = docker_host
     end
     @__env
+  end
+
+  def have_boot2docker?
+    ! `which boot2docker`.empty?
   end
 
   def run(cmd)
