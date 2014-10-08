@@ -22,13 +22,13 @@ module CommandRunner
     ! `which boot2docker`.empty?
   end
 
-  def run(cmd)
-    sout, *_ = run_and_capture cmd
+  def run(cmd, ext_env: {})
+    sout, *_ = run_and_capture cmd, ext_env
     return sout
   end
 
-  def run_and_capture(cmd)
-    sout, serr, ex = Open3.capture3 __env, cmd
+  def run_and_capture(cmd, ext_env: {})
+    sout, serr, ex = Open3.capture3 __env.merge(ext_env), cmd
 
     if __debug?
       $stderr.puts "*** Command: #{cmd}"
