@@ -1,0 +1,21 @@
+box: wercker-labs/docker
+build:
+  steps:
+    - install-packages:
+        packages:
+          - build-essential
+          - ruby2.0
+          - ruby2.0-dev
+          - bundler
+    - script:
+        name: docker version
+        code: |
+          docker -v
+    - script:
+        name: bundle install
+        code: |
+          bundle install --path vendor/bundle
+    - script:
+        name: spec runner
+        code: |
+          bundle exec rake spec
