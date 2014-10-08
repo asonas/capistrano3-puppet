@@ -23,7 +23,7 @@ module CommandRunner
   end
 
   def run(cmd, ext_env: {})
-    sout, *_ = run_and_capture cmd, ext_env
+    sout, *_ = run_and_capture cmd, ext_env: ext_env
     return sout
   end
 
