@@ -1,0 +1,3 @@
+node /.*\.dev/ {
+  include sample
+}
