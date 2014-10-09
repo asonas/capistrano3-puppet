@@ -1,3 +1,5 @@
+[![wercker status](https://app.wercker.com/status/72cd6ed8d34fa324ec92a851c68bfe0a/m "wercker status")](https://app.wercker.com/project/bykey/72cd6ed8d34fa324ec92a851c68bfe0a)
+
 # Capistrano3::Puppet
 
 TODO: Write a gem description
